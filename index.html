@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    margin-bottom: 50px;
+}
+
+.plate {
+    width: 260px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.layer {
+    width: 200px;
+    height: 60px;
+    background-color: #1586d1;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.layer-bottom {
+    bottom: 20px;
+}
+
+.layer-middle {
+    width: 200px;
+    height: 30px;
+    bottom: 65px;
+    background-color: #ff9999;
+}
+
+.layer-topS {
+    width: 170px;
+    height: 60px;
+    bottom: 90px;
+    left: 12%;
+    background-color: #f0c539;
+    animation: bounce 2s infinite;
+}
+
+.layer-top {
+    width: 170px;
+    height: 30px;
+    bottom: 135px;
+    left: 12%;
+    background-color: #8321bf;
+    animation: bounce 2s infinite;
+}
+
+.frosting {
+    position: absolute;
+    width: 220px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.strawberries {
+    position: absolute;
+    top: 120px;
+    right: 29%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+    animation: bounce 2s infinite;
+}
+
+.strawberry {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.strawberry::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #32cd32;
+    border-radius: 50%;
+}
+
+.candle-container {
+    position: absolute;
+    top: 30px;
+    right: 22%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    animation: bounce 2s infinite;
+  }
+  
+  .candle-number {
+    width: 40px;
+    height: 140px;
+    background-color: #f9c459;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 90px;
+    font-weight: bold;
+    color: #6af9f2;
+    box-shadow: 0 9px 8px rgba(0, 0, 0, 0.2);
+    animation: flicker 0.2s infinite alternate;
+  }
+  
+  .one {
+    background-color: #000000;
+  }
+  
+  .nine {
+    background-color: #000000;
+  }
+  
+
+.flame1 {
+    width: 20px;
+    height: 20px;
+    background-color: #ff9933;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    right: 35%;
+    transform: translateX(-50%);
+    animation: flicker 0.2s infinite alternate,bounce 2s infinite ease-in-out;
+}
+
+.flame2 {
+    width: 20px;
+    height: 20px;
+    background-color: #ff9933;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    right: 55%;
+    transform: translateX(-50%);
+    animation: flicker 0.2s infinite alternate,bounce 2s infinite ease-in-out;
+}
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.1); }
+}
+
+.message {
+    font-size: 2.5em;
+    color: #ff6666;
+    animation: fadeIn 2s ease-in-out;
+}
+.message .left-text,
+.message .date-text{
+    font-size: 0.6em;
+    color: #797979;
+    position: absolute;
+    top: 0;
+    position: relative;
+}
+
+.message .left-text {
+    left: 1%;
+    top: -20%;
+    animation: bounce 10s infinite;
+    
+}
+.message .center-text {
+    left: 1%;
+    top: -10%;
+    color: #ff6666;
+    font-size: 1em;
+    animation: colorBlink 1s infinite;
+    position: relative;
+}
+.message .date-text {
+    left: 30%;
+    top: -10%;
+    position: relative;
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes colorBlink {
+    0% {
+        color: #ff6666;
+    }
+    50% {
+        color: #66ff66;
+    }
+    100% {
+        color: #ff6666;
+    }
+}
+
+/* Firework CSS */
+.firework-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: explode 1.5s infinite;
+    transform-origin: center;
+}
+
+.firework:nth-child(1) {
+    left: 30%;
+    top: 20%;
+    animation-delay: 0.2s;
+    background-color: red;
+}
+
+.firework:nth-child(2) {
+    left: 70%;
+    top: 25%;
+    animation-delay: 0.5s;
+    background-color: yellow;
+}
+
+.firework:nth-child(3) {
+    left: 50%;
+    top: 40px;
+    animation-delay: 0.8s;
+    background-color: blue;
+}
+
+.firework:nth-child(4) {
+    left: 20%;
+    top: 40%;
+    animation-delay: 1.1s;
+    background-color: green;
+}
+
+.firework:nth-child(5) {
+    left: 80%;
+    top: 35%;
+    animation-delay: 1.3s;
+    background-color: purple;
+}
+
+.firework:nth-child(6) {
+    left: 90%;
+    top: 10%;
+    animation-delay: 1.7s;
+    background-color: rgb(0, 128, 117);
+}
+
+.firework:nth-child(7) {
+    left: 10%;
+    top: 10%;
+    animation-delay: 1.7s;
+    background-color: rgb(212, 9, 171);
+}
+
+.firework:nth-child(8) {
+    left: 5%;
+    top: 85%;
+    animation-delay: 1.7s;
+    background-color: rgb(255, 2, 2);
+}
+
+.firework:nth-child(9) {
+    left: 90%;
+    top: 85%;
+    animation-delay: 1.2s;
+    background-color: rgb(242, 255, 0);
+}
+
+.firework:nth-child(10) {
+    left: 70%;
+    top: 75%;
+    animation-delay: 1s;
+    background-color: rgb(111, 186, 236);
+}
+
+.firework:nth-child(11) {
+    left: 30%;
+    top: 75%;
+    animation-delay: 0.8s;
+    background-color: rgb(214, 135, 226);
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+        box-shadow: 0 0 20px white, 0 0 40px white;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.firework::before, .firework::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    animation: sparkle 0.8s infinite;
+    opacity: 0;
+}
+
+.firework::before {
+    top: -30px;
+    left: -30px;
+    animation-delay: 0.1s;
+}
+
+.firework::after {
+    top: 30px;
+    left: 30px;
+    animation-delay: 0.2s;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="firework-container">
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+    </div>
+    <div class="cake">
+        <div class="plate"></div>
+        <div class="layer layer-bottom"></div>
+        <div class="layer layer-middle"></div>
+        <div class="candle-container">
+            <div class="candle-number one">1</div>
+            <div class="candle-number nine">9</div>
+        </div>
+        <div class="layer layer-topS"></div>
+        <div class="layer layer-top"></div>
+        <div class="strawberries">
+            <div class="strawberry"></div>
+            <div class="strawberry"></div>
+            <div class="strawberry"></div>
+        </div>
+        <div class="flame1"></div>
+        <div class="flame2"></div>
+    </div>
+    <h1 class="message">
+        <p class="left-text">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;祝你生日快乐,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宝贝就是永远<br>永远陪着我，永远幸福&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18岁🌷
+        </p>
+         
+        <a href="https://img.upanh.tv/2024/11/03/att.2w4zLSD3UkrT2--u7vt6C9mm9i1sREiH16k_Z0iK4D4-1.jpg" class="center-text">DingDing, Liki爱你哦～</a>
+        <!-- <span class="center-text">玲琦, 祝你生日快乐</span> -->
+      <p class="date-text">(03-11-2024)</p>
+    </h1>
+</body>
+</html>
